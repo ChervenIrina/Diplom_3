@@ -11,3 +11,5 @@ class Locators:
     COUNT_ORDERS_TODAY = (By.XPATH, ".//div[3]/p[contains(@class,'OrderFeed_number')]")
     ORDER_STATUS = (By.XPATH, ".//ul[contains(@class, 'OrderFeed_orderListReady__1YFem')]/li[@class= 'text text_type_digits-default mb-2']")
     ORDER_ID = (By.XPATH, "//h2[contains(@class , 'Modal_modal__title_shadow__3ikwq')]")
+    LABEL_ORDER_FEED = (By.LINK_TEXT, "Лента Заказов")
+    TITLE_ORDER_FEED = (By.XPATH, ".//h1[text()='Лента заказов']")

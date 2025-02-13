@@ -1,25 +1,21 @@
 import allure
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from constants import Url
 
 
 class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
-        self.url = Url.URL
 
-    @allure.step('Открываем основную страницу сайта')
-    def go_to_site(self):
-        self.driver.get(self.url)
+    @allure.step('Открытие страницы')
+    def go_to_site(self, url):
+        self.driver.get(url)
 
     @allure.step('Ожидаем отображение элемента')
     def wait_element(self, locator, time=20):
         WebDriverWait(self.driver, time).until(EC.visibility_of_element_located(locator))
-
-    #def wait_element_visibility(self, locator, time=20):
-
 
     @allure.step('Ожидание закрытия элемента')
     def wait_close_element(self, locator, time=20):
@@ -47,4 +43,18 @@ class BasePage:
     def find_elements(self, locator):
         self.wait_element(locator)
         return self.driver.find_elements(*locator)
+
+    @allure.step('Ищем элемент')
+    def find_element(self, locator):
+        self.wait_element(locator)
+        return self.driver.find_element(*locator)
+
+    @allure.step('Перетаскивание элемента')
+    def drag_and_drop_element(self, drag, drop):
+        action_chains = ActionChains(self.driver)
+        action_chains.drag_and_drop(drag, drop).perform()
+
+    @allure.step('Получение адреса текущей страницы')
+    def get_to_page(self):
+        return self.driver.current_url
 

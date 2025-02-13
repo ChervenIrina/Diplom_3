@@ -14,11 +14,7 @@ def driver(request):
     if request.param == "chrome":
         driver = webdriver.Chrome()
     elif request.param == "firefox":
-        options = Options()
-        options.binary = FirefoxBinary(r'E:\users\gorbunova_is\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\firefox.exe')
-        driver = webdriver.Firefox(
-            service=Service(executable_path='E:/firefox/geckodriver.exe'),
-            options=options)
+        driver = webdriver.Firefox()
     yield driver
     driver.quit()
 

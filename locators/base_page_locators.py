@@ -10,3 +10,4 @@ class Locators:
     FORM_DETAILS_CLOSE = (By.XPATH, "//section[@class ='Modal_modal__P3_V5']")
     HISTORY_ORDERS = (By.LINK_TEXT, "История заказов")
     BUTTON_CLOSE = (By.XPATH, ".//button[contains(@class, 'modal__close')]")
+    BUTTON_PLACE_ORDER = (By.XPATH, ".//button[contains(@class, 'button_button__33qZ0') and text() = 'Оформить заказ']")
