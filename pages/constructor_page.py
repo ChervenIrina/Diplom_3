@@ -2,7 +2,6 @@ import allure
 
 from constants import Url
 from locators.constructor_page_locators import Locators as CPL
-from locators.order_feed_page_locators import Locators as OFL
 from locators.login_page_locators import Locators as LPL
 from locators.base_page_locators import Locators as BPL
 from pages.base_page import BasePage
@@ -29,7 +28,7 @@ class ConstructorPage(BasePage):
 
     @allure.step('Переход по клику из личного кабинета на страницу конструтор бургера')
     def go_to_page_constructor(self):
-        self.click_element(LPL.PERSONAL_ACCOUNT)
+        self.click_element(BPL.PERSONAL_ACCOUNT)
         self.click_element(CPL.CONSTRUCTOR_LABEL)
         return self.get_element(CPL.CONSTRUCTOR_BURGER).is_displayed()
 
@@ -54,6 +53,6 @@ class ConstructorPage(BasePage):
 
     @allure.step('Получаем id заказа')
     def get_id_orders(self):
-        self.wait_close_element(OFL.ICON_WAITING)
-        self.wait_close_element(OFL.ICON_WAITING)
-        return self.get_element(OFL.ORDER_ID).text
+        self.wait_close_element(BPL.ICON_WAITING)
+        self.wait_close_element(BPL.ICON_WAITING)
+        return self.get_element(BPL.ORDER_ID).text
